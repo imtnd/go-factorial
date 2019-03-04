@@ -15,7 +15,11 @@ func main() {
 		fmt.Println("args must be 1.")
 		return
 	}
-	arg1, _ := strconv.Atoi(flag.Arg(0))
+	arg1, err := strconv.Atoi(flag.Arg(0))
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	result := factorial.GetFactorial(arg1)
 	fmt.Println("Factorial is", result)
